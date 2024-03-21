@@ -1375,7 +1375,7 @@ p, li { white-space: pre-wrap; }
                             <string notr="true">margin-top:4px;</string>
                            </property>
                            <property name="text">
-                            <string>Email</string>
+                            <string>Username:</string>
                            </property>
                            <property name="alignment">
                             <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
@@ -1403,7 +1403,7 @@ p, li { white-space: pre-wrap; }
 }</string>
                            </property>
                            <property name="placeholderText">
-                            <string>Email ID </string>
+                            <string>Username </string>
                            </property>
                           </widget>
                          </item>
@@ -1425,7 +1425,7 @@ p, li { white-space: pre-wrap; }
                             <string notr="true">margin-top:4px;</string>
                            </property>
                            <property name="text">
-                            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt; color:#ffffff;&quot;&gt;Key:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt; color:#ffffff;&quot;&gt;Password:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                            </property>
                            <property name="alignment">
                             <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
@@ -1452,10 +1452,29 @@ p, li { white-space: pre-wrap; }
     border: 2px solid rgb(85, 170, 255);  /* Change the border color when the button is focused/clicked */
 }</string>
                            </property>
+                           <property name="echoMode">
+                            <enum>QLineEdit::Password</enum>
+                           </property>
                            <property name="placeholderText">
-                            <string>Key</string>
+                            <string>Password</string>
                            </property>
                           </widget>
+                         </item>
+                         <item>
+                          <spacer name="verticalSpacer">
+                           <property name="orientation">
+                            <enum>Qt::Vertical</enum>
+                           </property>
+                           <property name="sizeType">
+                            <enum>QSizePolicy::Fixed</enum>
+                           </property>
+                           <property name="sizeHint" stdset="0">
+                            <size>
+                             <width>20</width>
+                             <height>20</height>
+                            </size>
+                           </property>
+                          </spacer>
                          </item>
                          <item alignment="Qt::AlignHCenter">
                           <widget class="QPushButton" name="btnLogin">

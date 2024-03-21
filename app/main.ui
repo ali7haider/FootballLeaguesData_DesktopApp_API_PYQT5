@@ -68,14 +68,7 @@ Left Menu */
 #leftMenuBg {	
 	background-color: rgb(33, 37, 43);
 }
-#topLogo {
-    background-color: rgb(33, 37, 43);
-    background-image: url(:/images/images/images/logo-main.png);
-    background-repeat: no-repeat;
-    background-position: left; /* or background-position: 0; */
-    
-   
-}
+
 
 #titleLeftApp { font: 63 12pt &quot;Segoe UI Semibold&quot;; }
 #titleLeftDescription { font: 8pt &quot;Segoe UI&quot;; color: rgb(189, 147, 249); }
@@ -231,22 +224,28 @@ background-color:rgb(85, 170, 255);
 /* /////////////////////////////////////////////////////////////////////////////////////////////////
 QTableWidget */
 QTableWidget {	
-	background-color: transparent;
+	background-color: black; /* Set the background color of the QTableWidget to black */
 	padding: 10px;
-	border-radius: 5px;
+	border-radius: 0px;
 	gridline-color: rgb(44, 49, 58);
 	border-bottom: 1px solid rgb(44, 49, 60);
 }
-QTableWidget::item{
+
+QTableWidget::item {
 	border-color: rgb(44, 49, 60);
 	padding-left: 5px;
 	padding-right: 5px;
 	gridline-color: rgb(44, 49, 60);
+	border:1px solid grey;
+	color: white; /* Set the text color of the cells to white */
 }
-QTableWidget::item:selected{
-background-color:rgb(85, 170, 255);
+
+QTableWidget::item:selected {
+	background-color: rgb(85, 170, 255);
+	color: black; /* Set the text color of the selected cell to black */
 }
-QHeaderView::section{
+
+QHeaderView::section {
 	background-color: rgb(33, 37, 43);
 	max-width: 30px;
 	border: 1px solid rgb(44, 49, 58);
@@ -254,21 +253,26 @@ QHeaderView::section{
     border-bottom: 1px solid rgb(44, 49, 60);
     border-right: 1px solid rgb(44, 49, 60);
 }
+
 QTableWidget::horizontalHeader {	
-	background-color: rgb(33, 37, 43);
+	background-color:  rgb(33, 37, 43);
 }
-QHeaderView::section:horizontal
-{
-    border: 1px solid rgb(33, 37, 43);
-	background-color: rgb(33, 37, 43);
-	padding: 3px;
-	border-top-left-radius: 7px;
-    border-top-right-radius: 7px;
+
+QHeaderView::section:horizontal {
+    background-color: rgb(33, 37, 43); 
+    padding: 3px;
+color:white;
 }
-QHeaderView::section:vertical
-{
-    border: 1px solid rgb(44, 49, 60);
+
+QHeaderView::section:vertical {
+ 	  background-color: rgb(33, 37, 43); 
+        padding: 0px;
+        color:white;
+        width: 32px; /* Set the width of vertical header sections */
+        text-align: left; 
 }
+
+
 
 /* /////////////////////////////////////////////////////////////////////////////////////////////////
 LineEdit */
@@ -442,6 +446,7 @@ QComboBox::drop-down {
 	border-left-style: solid;
 	border-top-right-radius: 3px;
 	border-bottom-right-radius: 3px;	
+	
 	background-image: url(:/icons/images/icons/drop-down.png);
 	background-position: center;
 	background-repeat: no-reperat;
@@ -1294,7 +1299,7 @@ p, li { white-space: pre-wrap; }
                   <property name="frameShadow">
                    <enum>QFrame::Raised</enum>
                   </property>
-                  <layout class="QVBoxLayout" name="verticalLayout_15">
+                  <layout class="QHBoxLayout" name="horizontalLayout_6">
                    <property name="spacing">
                     <number>0</number>
                    </property>
@@ -1452,7 +1457,7 @@ p, li { white-space: pre-wrap; }
                                   <property name="minimumSize">
                                    <size>
                                     <width>0</width>
-                                    <height>50</height>
+                                    <height>20</height>
                                    </size>
                                   </property>
                                   <property name="frameShape">
@@ -1462,43 +1467,57 @@ p, li { white-space: pre-wrap; }
                                    <enum>QFrame::Raised</enum>
                                   </property>
                                   <layout class="QHBoxLayout" name="horizontalLayout_31">
-                                   <item alignment="Qt::AlignHCenter">
-                                    <widget class="QPushButton" name="btnLoad">
-                                     <property name="minimumSize">
-                                      <size>
-                                       <width>170</width>
-                                       <height>45</height>
-                                      </size>
-                                     </property>
-                                     <property name="font">
-                                      <font>
-                                       <family>Arial</family>
-                                       <pointsize>12</pointsize>
-                                       <weight>9</weight>
-                                       <italic>false</italic>
-                                       <bold>false</bold>
-                                      </font>
-                                     </property>
-                                     <property name="cursor">
-                                      <cursorShape>PointingHandCursor</cursorShape>
-                                     </property>
-                                     <property name="styleSheet">
-                                      <string notr="true">
-#btnLoad{
-background-color:rgb(85, 170, 255);
-font: 75 12pt &quot;Arial&quot;;
-color:white;
-}
-#btnLoad:hover {
-background-color:#4673c6;
-}</string>
-                                     </property>
-                                     <property name="text">
-                                      <string>Load</string>
-                                     </property>
-                                    </widget>
-                                   </item>
+                                   <property name="topMargin">
+                                    <number>5</number>
+                                   </property>
                                   </layout>
+                                 </widget>
+                                </item>
+                                <item alignment="Qt::AlignHCenter">
+                                 <widget class="QLabel" name="lblLoad">
+                                  <property name="styleSheet">
+                                   <string notr="true">color: rgb(255, 0, 0);
+font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
+                                  </property>
+                                  <property name="text">
+                                   <string/>
+                                  </property>
+                                 </widget>
+                                </item>
+                                <item alignment="Qt::AlignHCenter">
+                                 <widget class="QPushButton" name="massdm">
+                                  <property name="minimumSize">
+                                   <size>
+                                    <width>170</width>
+                                    <height>45</height>
+                                   </size>
+                                  </property>
+                                  <property name="maximumSize">
+                                   <size>
+                                    <width>110</width>
+                                    <height>35</height>
+                                   </size>
+                                  </property>
+                                  <property name="font">
+                                   <font>
+                                    <family>Arial</family>
+                                    <pointsize>12</pointsize>
+                                    <weight>9</weight>
+                                    <italic>false</italic>
+                                    <bold>false</bold>
+                                   </font>
+                                  </property>
+                                  <property name="cursor">
+                                   <cursorShape>PointingHandCursor</cursorShape>
+                                  </property>
+                                  <property name="styleSheet">
+                                   <string notr="true">background-color:rgb(85, 170, 255);
+font: 75 12pt &quot;Arial&quot;;
+color:white;</string>
+                                  </property>
+                                  <property name="text">
+                                   <string>LOAD</string>
+                                  </property>
                                  </widget>
                                 </item>
                                 <item>
@@ -1528,7 +1547,185 @@ background-color:#4673c6;
                        </item>
                       </layout>
                      </widget>
-                     <widget class="QWidget" name="tablePage"/>
+                     <widget class="QWidget" name="tablePage">
+                      <layout class="QVBoxLayout" name="verticalLayout_4">
+                       <item>
+                        <widget class="QFrame" name="frame_2">
+                         <property name="styleSheet">
+                          <string notr="true"/>
+                         </property>
+                         <property name="frameShape">
+                          <enum>QFrame::StyledPanel</enum>
+                         </property>
+                         <property name="frameShadow">
+                          <enum>QFrame::Raised</enum>
+                         </property>
+                         <layout class="QVBoxLayout" name="verticalLayout_8">
+                          <property name="leftMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="topMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="rightMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="bottomMargin">
+                           <number>0</number>
+                          </property>
+                          <item alignment="Qt::AlignRight">
+                           <widget class="QPushButton" name="btnBack">
+                            <property name="minimumSize">
+                             <size>
+                              <width>150</width>
+                              <height>40</height>
+                             </size>
+                            </property>
+                            <property name="font">
+                             <font>
+                              <family>Arial</family>
+                              <pointsize>12</pointsize>
+                              <weight>9</weight>
+                              <italic>false</italic>
+                              <bold>false</bold>
+                             </font>
+                            </property>
+                            <property name="cursor">
+                             <cursorShape>PointingHandCursor</cursorShape>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">
+#btnBack{
+background-color:rgb(85, 170, 255);
+font: 75 12pt &quot;Arial&quot;;
+color:white;
+}
+#btnBack:hover {
+background-color:#4673c6;
+}</string>
+                            </property>
+                            <property name="text">
+                             <string>Back</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item alignment="Qt::AlignLeft">
+                           <widget class="QPushButton" name="btnExportCSV">
+                            <property name="minimumSize">
+                             <size>
+                              <width>100</width>
+                              <height>30</height>
+                             </size>
+                            </property>
+                            <property name="font">
+                             <font>
+                              <family>Arial</family>
+                              <pointsize>10</pointsize>
+                              <weight>9</weight>
+                              <italic>false</italic>
+                              <bold>false</bold>
+                             </font>
+                            </property>
+                            <property name="cursor">
+                             <cursorShape>PointingHandCursor</cursorShape>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">
+#btnExportCSV{
+background-color:rgb(85, 170, 255);
+font: 75 10pt &quot;Arial&quot;;
+color:white;
+}
+#btnExportCSV:hover {
+background-color:#4673c6;
+}</string>
+                            </property>
+                            <property name="text">
+                             <string>Export CSV</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QTableWidget" name="footballTable">
+                            <property name="styleSheet">
+                             <string notr="true"/>
+                            </property>
+                            <property name="editTriggers">
+                             <set>QAbstractItemView::NoEditTriggers</set>
+                            </property>
+                            <property name="showGrid">
+                             <bool>false</bool>
+                            </property>
+                            <property name="gridStyle">
+                             <enum>Qt::NoPen</enum>
+                            </property>
+                            <property name="sortingEnabled">
+                             <bool>true</bool>
+                            </property>
+                            <property name="cornerButtonEnabled">
+                             <bool>false</bool>
+                            </property>
+                            <property name="rowCount">
+                             <number>20</number>
+                            </property>
+                            <property name="columnCount">
+                             <number>7</number>
+                            </property>
+                            <attribute name="horizontalHeaderVisible">
+                             <bool>false</bool>
+                            </attribute>
+                            <attribute name="horizontalHeaderCascadingSectionResizes">
+                             <bool>false</bool>
+                            </attribute>
+                            <attribute name="horizontalHeaderHighlightSections">
+                             <bool>true</bool>
+                            </attribute>
+                            <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+                             <bool>true</bool>
+                            </attribute>
+                            <attribute name="horizontalHeaderStretchLastSection">
+                             <bool>false</bool>
+                            </attribute>
+                            <attribute name="verticalHeaderVisible">
+                             <bool>false</bool>
+                            </attribute>
+                            <attribute name="verticalHeaderShowSortIndicator" stdset="0">
+                             <bool>true</bool>
+                            </attribute>
+                            <row/>
+                            <row/>
+                            <row/>
+                            <row/>
+                            <row/>
+                            <row/>
+                            <row/>
+                            <row/>
+                            <row/>
+                            <row/>
+                            <row/>
+                            <row/>
+                            <row/>
+                            <row/>
+                            <row/>
+                            <row/>
+                            <row/>
+                            <row/>
+                            <row/>
+                            <row/>
+                            <column/>
+                            <column/>
+                            <column/>
+                            <column/>
+                            <column/>
+                            <column/>
+                            <column/>
+                           </widget>
+                          </item>
+                         </layout>
+                        </widget>
+                       </item>
+                      </layout>
+                     </widget>
                     </widget>
                    </item>
                   </layout>

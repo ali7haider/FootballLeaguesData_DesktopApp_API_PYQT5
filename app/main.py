@@ -6,11 +6,12 @@ Created on Fri Jan 19 20:03:57 2024
 """
 
 import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow
+from PyQt5.QtWidgets import QApplication, QMainWindow,QMessageBox
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QMouseEvent
 from login_ui import Ui_MainWindow  # Import the generated class
 from tableWindow import TableWindow  # Import the generated class
+from loadingScreen import LoadingScreen  # Import the generated class
 
 class LoginWindow(QMainWindow, Ui_MainWindow):
     def __init__(self):
@@ -35,16 +36,24 @@ class LoginWindow(QMainWindow, Ui_MainWindow):
     def login(self):
         email = self.txtEmail.text()
         key = self.txtAPIKey.text()
-        user={
-            "Email":email,
-            "Key":key
+
+        # Read email and key pairs from the .txt file
+        with open('user_credentials.txt', 'r') as file:
+            credentials = [line.strip().split(',') for line in file]
+
+        # Check if the entered email and key match any of the pairs
+        if [email, key] in credentials:
+            user = {
+                "Username": email,
+                "Password": key
             }
-        
-        if(email == "a" and key=="1"):
-            # if(adminDL().searchAdmin(login)):
             self.close()
             self.newq = TableWindow(user)
             self.newq.show()
+        else:
+            message_box = QMessageBox()
+            message_box.setStyleSheet("QMessageBox { color: black; }")
+            message_box.warning(self, "Login Failed", "Invalid email or key.")
 
     # Define the mousePressEvent method to handle mouse button press events
     def mousePressEvent(self, event: QMouseEvent) -> None:

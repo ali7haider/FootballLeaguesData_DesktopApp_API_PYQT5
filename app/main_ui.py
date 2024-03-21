@@ -61,14 +61,7 @@ class Ui_MainWindow(object):
 "#leftMenuBg {    \n"
 "    background-color: rgb(33, 37, 43);\n"
 "}\n"
-"#topLogo {\n"
-"    background-color: rgb(33, 37, 43);\n"
-"    background-image: url(:/images/images/images/logo-main.png);\n"
-"    background-repeat: no-repeat;\n"
-"    background-position: left; /* or background-position: 0; */\n"
-"    \n"
-"   \n"
-"}\n"
+"\n"
 "\n"
 "#titleLeftApp { font: 63 12pt \"Segoe UI Semibold\"; }\n"
 "#titleLeftDescription { font: 8pt \"Segoe UI\"; color: rgb(189, 147, 249); }\n"
@@ -224,22 +217,28 @@ class Ui_MainWindow(object):
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "QTableWidget */\n"
 "QTableWidget {    \n"
-"    background-color: transparent;\n"
+"    background-color: black; /* Set the background color of the QTableWidget to black */\n"
 "    padding: 10px;\n"
-"    border-radius: 5px;\n"
+"    border-radius: 0px;\n"
 "    gridline-color: rgb(44, 49, 58);\n"
 "    border-bottom: 1px solid rgb(44, 49, 60);\n"
 "}\n"
-"QTableWidget::item{\n"
+"\n"
+"QTableWidget::item {\n"
 "    border-color: rgb(44, 49, 60);\n"
 "    padding-left: 5px;\n"
 "    padding-right: 5px;\n"
 "    gridline-color: rgb(44, 49, 60);\n"
+"    border:1px solid grey;\n"
+"    color: white; /* Set the text color of the cells to white */\n"
 "}\n"
-"QTableWidget::item:selected{\n"
-"background-color:rgb(85, 170, 255);\n"
+"\n"
+"QTableWidget::item:selected {\n"
+"    background-color: rgb(85, 170, 255);\n"
+"    color: black; /* Set the text color of the selected cell to black */\n"
 "}\n"
-"QHeaderView::section{\n"
+"\n"
+"QHeaderView::section {\n"
 "    background-color: rgb(33, 37, 43);\n"
 "    max-width: 30px;\n"
 "    border: 1px solid rgb(44, 49, 58);\n"
@@ -247,21 +246,26 @@ class Ui_MainWindow(object):
 "    border-bottom: 1px solid rgb(44, 49, 60);\n"
 "    border-right: 1px solid rgb(44, 49, 60);\n"
 "}\n"
+"\n"
 "QTableWidget::horizontalHeader {    \n"
-"    background-color: rgb(33, 37, 43);\n"
+"    background-color:  rgb(33, 37, 43);\n"
 "}\n"
-"QHeaderView::section:horizontal\n"
-"{\n"
-"    border: 1px solid rgb(33, 37, 43);\n"
-"    background-color: rgb(33, 37, 43);\n"
+"\n"
+"QHeaderView::section:horizontal {\n"
+"    background-color: rgb(33, 37, 43); \n"
 "    padding: 3px;\n"
-"    border-top-left-radius: 7px;\n"
-"    border-top-right-radius: 7px;\n"
+"color:white;\n"
 "}\n"
-"QHeaderView::section:vertical\n"
-"{\n"
-"    border: 1px solid rgb(44, 49, 60);\n"
+"\n"
+"QHeaderView::section:vertical {\n"
+"       background-color: rgb(33, 37, 43); \n"
+"        padding: 0px;\n"
+"        color:white;\n"
+"        width: 32px; /* Set the width of vertical header sections */\n"
+"        text-align: left; \n"
 "}\n"
+"\n"
+"\n"
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "LineEdit */\n"
@@ -435,6 +439,7 @@ class Ui_MainWindow(object):
 "    border-left-style: solid;\n"
 "    border-top-right-radius: 3px;\n"
 "    border-bottom-right-radius: 3px;    \n"
+"    \n"
 "    background-image: url(:/icons/images/icons/drop-down.png);\n"
 "    background-position: center;\n"
 "    background-repeat: no-reperat;\n"
@@ -803,10 +808,10 @@ class Ui_MainWindow(object):
         self.pagesContainer.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.pagesContainer.setFrameShadow(QtWidgets.QFrame.Raised)
         self.pagesContainer.setObjectName("pagesContainer")
-        self.verticalLayout_15 = QtWidgets.QVBoxLayout(self.pagesContainer)
-        self.verticalLayout_15.setContentsMargins(20, 0, 20, 0)
-        self.verticalLayout_15.setSpacing(0)
-        self.verticalLayout_15.setObjectName("verticalLayout_15")
+        self.horizontalLayout_6 = QtWidgets.QHBoxLayout(self.pagesContainer)
+        self.horizontalLayout_6.setContentsMargins(20, 0, 20, 0)
+        self.horizontalLayout_6.setSpacing(0)
+        self.horizontalLayout_6.setObjectName("horizontalLayout_6")
         self.stackedWidget = QtWidgets.QStackedWidget(self.pagesContainer)
         self.stackedWidget.setStyleSheet("    background-color: rgb(40, 44, 52);\n"
 "")
@@ -890,34 +895,36 @@ class Ui_MainWindow(object):
         self.cmbxLeague.addItem("")
         self.verticalLayout_90.addWidget(self.cmbxLeague)
         self.frame_93 = QtWidgets.QFrame(self.frame_91)
-        self.frame_93.setMinimumSize(QtCore.QSize(0, 50))
+        self.frame_93.setMinimumSize(QtCore.QSize(0, 20))
         self.frame_93.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_93.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_93.setObjectName("frame_93")
         self.horizontalLayout_31 = QtWidgets.QHBoxLayout(self.frame_93)
+        self.horizontalLayout_31.setContentsMargins(-1, 5, -1, -1)
         self.horizontalLayout_31.setObjectName("horizontalLayout_31")
-        self.btnLoad = QtWidgets.QPushButton(self.frame_93)
-        self.btnLoad.setMinimumSize(QtCore.QSize(170, 45))
+        self.verticalLayout_90.addWidget(self.frame_93)
+        self.lblLoad = QtWidgets.QLabel(self.frame_91)
+        self.lblLoad.setStyleSheet("color: rgb(255, 0, 0);\n"
+"font: 10pt \"MS Shell Dlg 2\";")
+        self.lblLoad.setText("")
+        self.lblLoad.setObjectName("lblLoad")
+        self.verticalLayout_90.addWidget(self.lblLoad, 0, QtCore.Qt.AlignHCenter)
+        self.massdm = QtWidgets.QPushButton(self.frame_91)
+        self.massdm.setMinimumSize(QtCore.QSize(170, 45))
+        self.massdm.setMaximumSize(QtCore.QSize(110, 35))
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setPointSize(12)
         font.setBold(False)
         font.setItalic(False)
         font.setWeight(9)
-        self.btnLoad.setFont(font)
-        self.btnLoad.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.btnLoad.setStyleSheet("\n"
-"#btnLoad{\n"
-"background-color:rgb(85, 170, 255);\n"
+        self.massdm.setFont(font)
+        self.massdm.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.massdm.setStyleSheet("background-color:rgb(85, 170, 255);\n"
 "font: 75 12pt \"Arial\";\n"
-"color:white;\n"
-"}\n"
-"#btnLoad:hover {\n"
-"background-color:#4673c6;\n"
-"}")
-        self.btnLoad.setObjectName("btnLoad")
-        self.horizontalLayout_31.addWidget(self.btnLoad, 0, QtCore.Qt.AlignHCenter)
-        self.verticalLayout_90.addWidget(self.frame_93)
+"color:white;")
+        self.massdm.setObjectName("massdm")
+        self.verticalLayout_90.addWidget(self.massdm, 0, QtCore.Qt.AlignHCenter)
         spacerItem = QtWidgets.QSpacerItem(20, 35, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.MinimumExpanding)
         self.verticalLayout_90.addItem(spacerItem)
         self.horizontalLayout_28.addWidget(self.frame_91)
@@ -926,8 +933,78 @@ class Ui_MainWindow(object):
         self.stackedWidget.addWidget(self.selectPage)
         self.tablePage = QtWidgets.QWidget()
         self.tablePage.setObjectName("tablePage")
+        self.verticalLayout_4 = QtWidgets.QVBoxLayout(self.tablePage)
+        self.verticalLayout_4.setObjectName("verticalLayout_4")
+        self.frame_2 = QtWidgets.QFrame(self.tablePage)
+        self.frame_2.setStyleSheet("")
+        self.frame_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_2.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_2.setObjectName("frame_2")
+        self.verticalLayout_8 = QtWidgets.QVBoxLayout(self.frame_2)
+        self.verticalLayout_8.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_8.setObjectName("verticalLayout_8")
+        self.btnBack = QtWidgets.QPushButton(self.frame_2)
+        self.btnBack.setMinimumSize(QtCore.QSize(150, 40))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(12)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(9)
+        self.btnBack.setFont(font)
+        self.btnBack.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.btnBack.setStyleSheet("\n"
+"#btnBack{\n"
+"background-color:rgb(85, 170, 255);\n"
+"font: 75 12pt \"Arial\";\n"
+"color:white;\n"
+"}\n"
+"#btnBack:hover {\n"
+"background-color:#4673c6;\n"
+"}")
+        self.btnBack.setObjectName("btnBack")
+        self.verticalLayout_8.addWidget(self.btnBack, 0, QtCore.Qt.AlignRight)
+        self.btnExportCSV = QtWidgets.QPushButton(self.frame_2)
+        self.btnExportCSV.setMinimumSize(QtCore.QSize(100, 30))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(9)
+        self.btnExportCSV.setFont(font)
+        self.btnExportCSV.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.btnExportCSV.setStyleSheet("\n"
+"#btnExportCSV{\n"
+"background-color:rgb(85, 170, 255);\n"
+"font: 75 10pt \"Arial\";\n"
+"color:white;\n"
+"}\n"
+"#btnExportCSV:hover {\n"
+"background-color:#4673c6;\n"
+"}")
+        self.btnExportCSV.setObjectName("btnExportCSV")
+        self.verticalLayout_8.addWidget(self.btnExportCSV, 0, QtCore.Qt.AlignLeft)
+        self.footballTable = QtWidgets.QTableWidget(self.frame_2)
+        self.footballTable.setStyleSheet("")
+        self.footballTable.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.footballTable.setShowGrid(False)
+        self.footballTable.setGridStyle(QtCore.Qt.NoPen)
+        self.footballTable.setCornerButtonEnabled(False)
+        self.footballTable.setRowCount(20)
+        self.footballTable.setColumnCount(7)
+        self.footballTable.setObjectName("footballTable")
+        self.footballTable.horizontalHeader().setVisible(False)
+        self.footballTable.horizontalHeader().setCascadingSectionResizes(False)
+        self.footballTable.horizontalHeader().setHighlightSections(True)
+        self.footballTable.horizontalHeader().setSortIndicatorShown(True)
+        self.footballTable.horizontalHeader().setStretchLastSection(False)
+        self.footballTable.verticalHeader().setVisible(False)
+        self.footballTable.verticalHeader().setSortIndicatorShown(True)
+        self.verticalLayout_8.addWidget(self.footballTable)
+        self.verticalLayout_4.addWidget(self.frame_2)
         self.stackedWidget.addWidget(self.tablePage)
-        self.verticalLayout_15.addWidget(self.stackedWidget)
+        self.horizontalLayout_6.addWidget(self.stackedWidget)
         self.horizontalLayout_4.addWidget(self.pagesContainer)
         self.extraRightBox = QtWidgets.QFrame(self.content)
         self.extraRightBox.setMinimumSize(QtCore.QSize(0, 0))
@@ -1082,7 +1159,10 @@ class Ui_MainWindow(object):
         self.cmbxCountry.setItemText(0, _translate("MainWindow", "Select"))
         self.label_100.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:12pt; color:#ffffff;\">Select League</span></p></body></html>"))
         self.cmbxLeague.setItemText(0, _translate("MainWindow", "Select"))
-        self.btnLoad.setText(_translate("MainWindow", "Load"))
+        self.massdm.setText(_translate("MainWindow", "LOAD"))
+        self.btnBack.setText(_translate("MainWindow", "Back"))
+        self.btnExportCSV.setText(_translate("MainWindow", "Export CSV"))
+        self.footballTable.setSortingEnabled(True)
         self.btn_message.setText(_translate("MainWindow", "Message"))
         self.btn_print.setText(_translate("MainWindow", "Print"))
         self.btn_logout.setText(_translate("MainWindow", "Logout"))

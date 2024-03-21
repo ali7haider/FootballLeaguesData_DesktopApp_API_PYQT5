@@ -71,10 +71,10 @@ def save_df_to_csv(df: pd.DataFrame, championship_name: str) -> None:
     Returns:
         None
     """
-    datetime_now = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")  # Replace colon with underscore
+    today_date = datetime.datetime.now().strftime("%Y-%m-%d")
     if not os.path.exists(DATA_PATH):
         os.makedirs(DATA_PATH)
-    df.to_csv(DATA_PATH + f'/df_championship_{championship_name}_{datetime_now}.csv', index=False, header=True)
+    df.to_csv(DATA_PATH + f'/{championship_name}_{today_date}.csv', index=False, header=True)
 
 def get_total_pages(url: str, key: str, championship_code: str) -> int:
     """
