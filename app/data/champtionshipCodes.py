@@ -1090,11 +1090,10 @@ CHAMPIONSHIPS = {
 def format_info(key, value):
     parts = key.split("_")
     country = parts[0]
-    league = "_".join(parts[1:-1])
-    if league=="":
-        league=parts[1]
+    league = "_".join(parts[1:])
     full_name = key
     return f"{full_name},{country},{league},{value}"
+
 
 # Write the data to a CSV file
 with open("championshipsWithCode.csv", "w", newline="") as csvfile:
